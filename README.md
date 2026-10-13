@@ -1,219 +1,134 @@
-# BrainSafe - AI-Powered Video Content Safety Platform# BrainSafe Chrome Extension
+<div align="center">
 
+<img src="docs/logo.svg" alt="MindSteady logo" width="120" height="120">
 
+# MindSteady
 
-<!-- Main intro section - to be filled -->A Chrome extension that monitors video content on web pages and provides safety controls for children.
+**AI-Powered Video Content Safety Platform**
 
+Keeping children safe online — one video at a time.
 
+</div>
 
----## Features
+---
 
+## 🎯 Overview
 
+MindSteady is a comprehensive video content safety platform that analyzes video content in real time and applies gentle, automatic protections for children. It combines a browser extension, an AI-powered backend, and an agent toolkit that work together to detect video content, score its safety, and respond with calming measures such as slower playback, softer visuals, and clear warnings.
 
-## 🏗️ Project Structure- **Video Detection**: Automatically detects all video elements on web pages
+## 🏗️ Project Structure
 
-- **Content Analysis**: Sends video data to backend API for content safety analysis
+This is a monorepo containing three interconnected components:
 
-This is a monorepo containing three interconnected components that work together to provide comprehensive video content safety monitoring:- **Playback Control**: Adjusts video playback speed based on content analysis
+```
+mindsteady/
+├── extension/          # Chrome Extension - frontend client
+├── backend/            # Django API - content analysis service
+├── shieldagent/        # ADK agent toolkit - analysis pipeline
+└── docs/               # Branding and documentation assets
+```
 
-- **Visual Filters**: Applies color tone filters to reduce harsh visuals
+### 🔧 Components Overview
 
-```- **Safety Warnings**: Shows alerts and pauses inappropriate content
-
-brainsafe/
-
-├── extension/          # Chrome Extension - Frontend client## Installation
-
-├── backend/           # Django API - Content analysis service  
-
-├── sdk-agent/         # SDK Agent - Integration toolkit1. Open Chrome and navigate to `chrome://extensions/`
-
-└── docs/             # Documentation and resources2. Enable "Developer mode" in the top right corner
-
-```3. Click "Load unpacked extension" button
-
-4. Select the `extension` folder (not the root `brainsafe` folder)
-
-### 🔧 Components Overview5. The BrainSafe extension will appear in your browser toolbar
-
-
-
-| Component | Technology | Purpose | Status |## Testing
-
+| Component | Technology | Purpose | Status |
 |-----------|------------|---------|--------|
+| **Chrome Extension** | JavaScript, HTML, CSS | Browser-based video interception and safety controls | ✅ Complete |
+| **Backend API** | Django, Python, AI/ML | Video content analysis and safety scoring | 🚧 In Development |
+| **Shield Agent** | Python, Google ADK | Multi-agent analysis pipeline for content safety | 🚧 In Development |
 
-| **Chrome Extension** | JavaScript, HTML, CSS | Browser-based video interception and safety controls | ✅ Complete |1. After installation, open the `extension/test-page.html` file in Chrome
+---
 
-| **Backend API** | Django, Python, AI/ML | Video content analysis and safety scoring | 🚧 In Development |2. Click the BrainSafe extension icon to open the control panel
+## 🚀 Quick Start
 
-| **SDK Agent** | Python/Node.js | Integration toolkit for third-party platforms | 📋 Planned |3. Play the test videos to see different safety behaviors:
+### Prerequisites
 
-   - Video 1: Normal playback (safe content)
+- Node.js 16+
+- Python 3.8+
+- Chrome Browser
+- Git
 
----   - Video 2: Reduced speed + filters (moderate content)
+### 1. Clone Repository
 
-   - Video 3: Warning dialog + pause (risky content)
+```bash
+git clone <repository-url>
+cd mindsteady
+```
 
-## 🚀 Quick Start4. Check the browser console (F12) for debug messages
+### 2. Set Up Chrome Extension
 
+```bash
+cd extension
+# Follow extension/README.md for installation
+```
 
+### 3. Set Up Backend API
 
-### Prerequisites## Usage
+```bash
+cd backend
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+# Follow backend/README.md for detailed setup
+```
 
-- Node.js 16+ 
+### 4. Set Up Shield Agent
 
-- Python 3.8+1. Navigate to any webpage with video content (YouTube, news sites, etc.)
+```bash
+cd shieldagent
+# Follow shieldagent setup notes for installation
+```
 
-- Chrome Browser2. The extension automatically detects and monitors videos
-
-- Git3. Content is analyzed using a mock backend API (placeholder)
-
-4. Safety measures are applied automatically:
-
-### 1. Clone Repository   - **Speed Reduction**: Slows down intense content
-
-```bash   - **Visual Filters**: Tone down colors and brightness
-
-git clone <repository-url>   - **Warnings**: Shows alerts for inappropriate content
-
-cd brainsafe
-
-```## Development
-
-
-
-### 2. Set Up Chrome Extension### Project Structure
-
-```bash```
-
-cd extensionbrainsafe/
-
-# Follow extension/README.md for installation├── extension/           # Chrome Extension
-
-```│   ├── manifest.json   # Extension configuration
-
-│   ├── content.js      # Content script for video manipulation
-
-### 3. Set Up Backend API│   ├── background.js   # Service worker for API communication
-
-```bash│   ├── popup.html      # Extension popup interface
-
-cd backend│   ├── popup.js        # Popup functionality
-
-pip install -r requirements.txt│   ├── styles.css      # Styling
-
-python manage.py migrate│   ├── test-page.html  # Demo page for testing
-
-python manage.py runserver│   └── icons/          # Extension icons
-
-# Follow backend/README.md for detailed setup├── backend/            # Backend API (planned)
-
-```│   └── README.md       # Backend documentation
-
-├── .github/            # Project configuration
-
-### 4. Set Up SDK Agent└── README.md           # Main documentation
-
-```bash```
-
-cd sdk-agent
-
-# Follow sdk-agent/README.md for installation### API Integration
-
-```The extension communicates with a backend API endpoint to analyze video content and receive safety recommendations.
-
-
-
----**Current Status**: Uses mock API responses for demonstration
-
-**API Endpoint**: `https://api.brainsafe.placeholder.com/analyze` (placeholder)
+---
 
 ## 📚 Component Documentation
 
-#### API Request Format:
+### [Chrome Extension](./extension/README.md)
 
-### [Chrome Extension](./extension/README.md)```json
-
-Browser extension that intercepts video elements on web pages and applies safety measures in real-time.{
-
-  "videoData": {
-
-**Key Features:**    "src": "video_url",
-
-- Automatic video detection across all websites    "duration": 120,
-
-- Real-time content analysis integration    "videoWidth": 1920,
-
-- Playback speed control and visual filters      "videoHeight": 1080,
-
-- Parental warning system with user controls    "url": "page_url",
-
-- Comprehensive settings and monitoring dashboard    "title": "page_title"
-
-  },
-
-### [Backend API](./backend/README.md)    "timestamp": 1640995200000
-
-Django-based REST API that provides AI-powered video content analysis and safety scoring.}
-
-```
+Browser extension that intercepts video elements on web pages and applies safety measures in real time.
 
 **Key Features:**
 
-- Video content analysis using ML models#### API Response Format:
+- Automatic video detection across all websites
+- Real-time content analysis integration
+- Playback speed control and visual filters
+- Parental warning system with user controls
+- Comprehensive settings and monitoring dashboard
 
-- Safety level classification (safe/moderate/risky)```json
+### [Backend API](./backend/README.md)
 
-- RESTful API with authentication{
+Django-based REST API that provides AI-powered video content analysis and safety scoring.
 
-- Database storage for analysis results  "safetyLevel": "safe|moderate|risky",
+**Key Features:**
 
-- Scalable deployment architecture  "confidence": 0.85,
+- Video content analysis using ML models
+- Safety level classification (safe/moderate/risky)
+- RESTful API with authentication
+- Database storage for analysis results
+- Scalable deployment architecture
 
-  "actions": {
+### [Shield Agent](./shieldagent/)
 
-### [SDK Agent](./sdk-agent/README.md)    "reduceSpeed": false,
+ADK-based agent toolkit that enables third-party platforms to incorporate MindSteady functionality.
 
-Integration toolkit that enables third-party platforms to incorporate BrainSafe functionality.    "speedFactor": 0.75,
+**Key Features:**
 
-    "applyFilters": true,
+- Parallel multi-agent content analysis
+- Playback speed, color contrast, and content appropriateness checks
+- Structured JSON recommendations
+- Easy integration APIs for web platforms
 
-**Key Features:**    "filters": ["tone-down"],
+---
 
-- Easy integration APIs for web platforms    "showWarning": false,
+## 🔄 System Architecture
 
-- Customizable safety policies    "warningMessage": "Custom warning text"
-
-- Analytics and reporting tools  },
-
-- Multi-language support  "analysisId": "unique_id",
-
-- Enterprise-grade security  "timestamp": 1640995200000
-
-}
-
----```
-
-
-
-## 🔄 System Architecture#### Integration Steps:
-
-1. Replace the placeholder API endpoint in `extension/background.js`
-
-```2. Add authentication headers if required
-
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐3. Update the `analyzeVideo()` method to use real API calls
-
-│  Chrome         │    │  Backend API    │    │  SDK Agent      │4. Handle error cases and fallbacks appropriately
-
-│  Extension      │◄──►│  (Django)       │◄──►│  (Integration)  │5. Deploy backend API (see `backend/README.md` for details)
-
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│  Chrome         │    │  Backend API    │    │  Shield Agent   │
+│  Extension      │◄──►│  (Django)       │◄──►│  (Integration)  │
 │                 │    │                 │    │                 │
-
-│ • Video Detection│    │ • Content Analysis│   │ • Platform APIs │## License
-
-│ • Safety Controls│    │ • ML Models     │    │ • Custom Policies│MIT License
-│ • User Interface │    │ • Database      │    │ • Analytics     │
+│ • Video Detection│   │ • Content Analysis│  │ • Platform APIs │
+│ • Safety Controls│   │ • ML Models     │    │ • Custom Policies│
+│ • User Interface │   │ • Database      │    │ • Analytics     │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
@@ -222,6 +137,7 @@ Integration toolkit that enables third-party platforms to incorporate BrainSafe 
 ## 🛠️ Development Workflow
 
 ### Setting Up Development Environment
+
 ```bash
 # Install all dependencies
 npm run install-all
@@ -237,8 +153,9 @@ npm run build
 ```
 
 ### Code Standards
+
 - **JavaScript**: ESLint + Prettier configuration
-- **Python**: Black formatter + Flake8 linting  
+- **Python**: Black formatter + Flake8 linting
 - **Git**: Conventional commit messages
 - **Testing**: Unit tests required for all components
 
@@ -247,16 +164,19 @@ npm run build
 ## 🚢 Deployment
 
 ### Chrome Extension
+
 1. Build extension package
 2. Submit to Chrome Web Store
 3. Configure API endpoints for production
 
-### Backend API  
+### Backend API
+
 1. Deploy to cloud provider (AWS/GCP/Azure)
 2. Set up database and ML model services
 3. Configure authentication and rate limiting
 
-### SDK Agent
+### Shield Agent
+
 1. Package and publish to npm/PyPI
 2. Generate API documentation
 3. Provide integration examples
@@ -266,7 +186,7 @@ npm run build
 ## 📊 Monitoring & Analytics
 
 - **Extension Usage**: User engagement and safety interventions
-- **API Performance**: Response times and analysis accuracy  
+- **API Performance**: Response times and analysis accuracy
 - **Content Analysis**: Safety trend analysis and model improvements
 - **Error Tracking**: Comprehensive logging and alerting
 
@@ -293,10 +213,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🆘 Support
 
 - **Documentation**: Check component-specific READMEs
-- **Issues**: Create GitHub issues for bugs and feature requests  
+- **Issues**: Create GitHub issues for bugs and feature requests
 - **Community**: Join our Discord/Slack for discussions
 - **Enterprise**: Contact team for business inquiries
 
 ---
 
+<div align="center">
+
 *Building a safer digital environment for children, one video at a time.* 🛡️👶
+
+</div>

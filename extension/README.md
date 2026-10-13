@@ -1,10 +1,16 @@
-# BabyShield Chrome Extension
+<div align="center">
+
+<img src="../docs/logo.svg" alt="MindSteady logo" width="96" height="96">
+
+</div>
+
+# MindSteady Chrome Extension
 
 A powerful Chrome extension that provides real-time video content safety monitoring and parental controls across all websites.
 
 ## 🎯 Overview
 
-The BabyShield Chrome Extension acts as the frontend client in the BabyShield ecosystem, intercepting video elements on web pages and applying AI-powered safety measures in real-time. It seamlessly integrates with the BabyShield backend API to provide comprehensive content analysis and protection.
+The MindSteady Chrome Extension acts as the frontend client in the MindSteady ecosystem, intercepting video elements on web pages and applying AI-powered safety measures in real-time. It seamlessly integrates with the MindSteady backend API to provide comprehensive content analysis and protection.
 
 ## ✨ Features
 
@@ -38,7 +44,7 @@ The BabyShield Chrome Extension acts as the frontend client in the BabyShield ec
 1. **Clone the repository**:
    ```bash
    git clone <repository-url>
-   cd babyshield/extension
+   cd mindsteady/extension
    ```
 
 2. **Open Chrome Extensions**:
@@ -58,7 +64,7 @@ The BabyShield Chrome Extension acts as the frontend client in the BabyShield ec
 
 ### Quick Test
 1. **Load Test Page**: Open `extension/test-page.html` in Chrome
-2. **Open Controls**: Click BabyShield icon in toolbar
+2. **Open Controls**: Click MindSteady icon in toolbar
 3. **Play Videos**: Test different safety behaviors:
    - **Video 1**: Normal playback (safe content)
    - **Video 2**: Reduced speed + filters (moderate content)  
@@ -145,7 +151,7 @@ npm run package
 ## 🔌 API Integration
 
 ### Backend Communication
-The extension communicates with the BabyShield Django backend via REST API:
+The extension communicates with the MindSteady Django backend via REST API:
 
 ```javascript
 // Request format
@@ -205,7 +211,7 @@ For development without backend:
 - API response times and errors
 
 ### Debug Information
-- Console logging with `BabyShield:` prefix
+- Console logging with `MindSteady:` prefix
 - Extension popup statistics
 - Background script status messages
 - API communication logs
@@ -256,7 +262,7 @@ const DEBUG_MODE = true;
 1. **Build Production Package**:
    ```bash
    npm run build
-   zip -r babyshield-extension.zip extension/
+   zip -r mindsteady-extension.zip extension/
    ```
 
 2. **Prepare Store Assets**:
@@ -294,5 +300,5 @@ MIT License - see [LICENSE](../LICENSE) file for details.
 
 ---
 
-**Parent Project**: [BabyShield Platform](../README.md)  
+**Parent Project**: [MindSteady Platform](../README.md)  
 **Related**: [Backend API](../backend/README.md) | [SDK Agent](../sdk-agent/README.md)

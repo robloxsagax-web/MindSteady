@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
 
-from baby_shield_backend.ai import process_video
+from mindsteady_backend.ai import process_video
 
 from functools import cache
 

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" role="img" aria-label="MindSteady logo">
+  <title>MindSteady</title>
+  <defs>
+    <linearGradient id="msGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22C1C3"/>
+      <stop offset="1" stop-color="#2A6EF5"/>
+    </linearGradient>
+    <linearGradient id="msPulse" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield: steady protection -->
+  <path d="M256 44 L428 108 C428 300 356 420 256 468 C156 420 84 300 84 108 Z"
+        fill="url(#msGrad)"/>
+  <path d="M256 44 L428 108 C428 300 356 420 256 468 C156 420 84 300 84 108 Z"
+        fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="8"/>
+
+  <!-- Steady heartbeat: mind at ease -->
+  <path d="M150 262 H208 L232 210 L268 316 L296 236 L318 262 H362"
+        fill="none" stroke="url(#msPulse)" stroke-width="18"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Calm mind dots -->
+  <circle cx="256" cy="150" r="14" fill="#FFFFFF" fill-opacity="0.9"/>
+</svg>

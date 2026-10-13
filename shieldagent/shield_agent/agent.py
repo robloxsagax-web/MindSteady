@@ -104,13 +104,13 @@ p_agent = ParallelAgent(
 )
 
 merger = Agent(
-     name="BabyShieldCoordinator",
+     name="MindSteadyCoordinator",
      model="gemini-2.0-flash",
      description=(
         "Root agent that coordinates analysis of video frames across three specialized agents in parallel."
     ),
     instruction=(
-        """You are the BabyShield coordinator agent. You receive video frames and coordinate analysis across three specialized sub-agents that run in parallel:
+        """You are the MindSteady coordinator agent. You receive video frames and coordinate analysis across three specialized sub-agents that run in parallel:
         
         1. Playback Speed Agent - analyzes if video needs slower playback for babies
         2. Color Contrast Agent - analyzes if video needs reduced contrast

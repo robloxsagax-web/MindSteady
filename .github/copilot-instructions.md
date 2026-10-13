@@ -1,7 +1,7 @@
-# BabyShield - AI-Powered Video Content Safety Platform
+# MindSteady - AI-Powered Video Content Safety Platform
 
 ## Project Overview
-BabyShield is a comprehensive video content safety platform consisting of three main components that work together to provide real-time video content analysis and protection for children online.
+MindSteady is a comprehensive video content safety platform consisting of three main components that work together to provide real-time video content analysis and protection for children online.
 
 ## Components
 1. **Chrome Extension**: Browser-based video interception and safety controls

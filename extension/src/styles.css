@@ -1,7 +1,7 @@
-/* BabyShield Extension Styles */
+/* MindSteady Extension Styles */
 
 /* Content Script Styles */
-.babyshield-overlay {
+.mindsteady-overlay {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -18,7 +18,7 @@
   pointer-events: none !important;
 }
 
-.babyshield-overlay > div {
+.mindsteady-overlay > div {
   pointer-events: auto !important;
 }
 
@@ -45,8 +45,10 @@
   margin-bottom: 8px;
 }
 
-.shield-icon {
-  font-size: 24px;
+.logo-img {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
   margin-right: 8px;
 }
 

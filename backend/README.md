@@ -1,10 +1,16 @@
-# BabyShield Backend API
+<div align="center">
 
-Django-based REST API server that provides AI-powered video content analysis and safety scoring for the BabyShield platform.
+<img src="../docs/logo.svg" alt="MindSteady logo" width="96" height="96">
+
+</div>
+
+# MindSteady Backend API
+
+Django-based REST API server that provides AI-powered video content analysis and safety scoring for the MindSteady platform.
 
 ## 🎯 Overview
 
-The BabyShield Backend is a robust Django application that analyzes video content metadata and provides safety recommendations to client applications. It serves as the intelligence core of the BabyShield ecosystem, utilizing machine learning models to classify content safety levels and recommend appropriate protective measures.
+The MindSteady Backend is a robust Django application that analyzes video content metadata and provides safety recommendations to client applications. It serves as the intelligence core of the MindSteady ecosystem, utilizing machine learning models to classify content safety levels and recommend appropriate protective measures.
 
 ## ✨ Features
 
@@ -58,7 +64,7 @@ The BabyShield Backend is a robust Django application that analyzes video conten
 1. **Clone and Navigate**:
    ```bash
    git clone <repository-url>
-   cd babyshield/backend
+   cd mindsteady/backend
    ```
 
 2. **Create Virtual Environment**:
@@ -213,7 +219,7 @@ curl -X POST http://localhost:8000/api/v1/auth/register \
 
 ```
 backend/
-├── babyshield/              # Django project root
+├── mindsteady/              # Django project root
 │   ├── settings/           # Environment-specific settings
 │   │   ├── base.py        # Base configuration
 │   │   ├── development.py # Development settings
@@ -285,7 +291,7 @@ SECRET_KEY=your-secret-key
 ALLOWED_HOSTS=localhost,127.0.0.1,your-domain.com
 
 # Database
-DATABASE_URL=postgresql://user:pass@localhost:5432/babyshield
+DATABASE_URL=postgresql://user:pass@localhost:5432/mindsteady
 REDIS_URL=redis://localhost:6379/0
 
 # API Configuration
@@ -366,11 +372,11 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'babyshield.log',
+            'filename': 'mindsteady.log',
         },
     },
     'loggers': {
-        'babyshield': {
+        'mindsteady': {
             'handlers': ['file'],
             'level': 'INFO',
         },
@@ -385,10 +391,10 @@ LOGGING = {
 1. **Docker Deployment**:
    ```bash
    # Build production image
-   docker build -f docker/Dockerfile -t babyshield-api .
+   docker build -f docker/Dockerfile -t mindsteady-api .
    
    # Run with environment
-   docker run -d --env-file .env -p 8000:8000 babyshield-api
+   docker run -d --env-file .env -p 8000:8000 mindsteady-api
    ```
 
 2. **Cloud Platforms**:
@@ -400,10 +406,10 @@ LOGGING = {
 3. **Database Setup**:
    ```bash
    # Production migrations
-   python manage.py migrate --settings=babyshield.settings.production
+   python manage.py migrate --settings=mindsteady.settings.production
    
    # Create admin user
-   python manage.py createsuperuser --settings=babyshield.settings.production
+   python manage.py createsuperuser --settings=mindsteady.settings.production
    ```
 
 ### Performance Optimization
@@ -464,5 +470,5 @@ MIT License - see [LICENSE](../LICENSE) file for details.
 
 ---
 
-**Parent Project**: [BabyShield Platform](../README.md)  
+**Parent Project**: [MindSteady Platform](../README.md)  
 **Related**: [Chrome Extension](../extension/README.md) | [SDK Agent](../sdk-agent/README.md)

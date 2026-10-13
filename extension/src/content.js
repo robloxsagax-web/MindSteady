@@ -1,4 +1,4 @@
-// BabyShield Content Script
+// MindSteady Content Script
 // Intercepts and monitors video elements on web pages
 
 class VideoInterceptor {
@@ -9,7 +9,7 @@ class VideoInterceptor {
   }
 
   init() {
-    console.log('BabyShield: Initializing video interceptor');
+    console.log('MindSteady: Initializing video interceptor');
     
     // Listen for messages from background script
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -19,7 +19,7 @@ class VideoInterceptor {
     chrome.runtime.sendMessage({ action: 'getStatus' }, (response) => {
       if (response && typeof response.isEnabled === 'boolean') {
         this.isEnabled = response.isEnabled;
-        console.log(`BabyShield: Initial enabled state is ${this.isEnabled}`);
+        console.log(`MindSteady: Initial enabled state is ${this.isEnabled}`);
       }
 
           
@@ -36,7 +36,7 @@ class VideoInterceptor {
   startVideoMonitoring() {
     // Find existing videos
     const existingVideos = document.querySelectorAll('video');
-    console.log(`BabyShield: Found ${existingVideos.length} existing video(s)`);
+    console.log(`MindSteady: Found ${existingVideos.length} existing video(s)`);
     existingVideos.forEach(video => this.interceptVideo(video));
     
     // Set up automatic checker every 5 seconds
@@ -60,7 +60,7 @@ class VideoInterceptor {
         });
       } catch (e) {
         // Cross-origin iframe, can't access
-        console.log('BabyShield: Cross-origin iframe detected');
+        console.log('MindSteady: Cross-origin iframe detected');
       }
     });
   }
@@ -71,7 +71,7 @@ class VideoInterceptor {
       const videos = iframeDoc.querySelectorAll('video');
       videos.forEach(video => this.interceptVideo(video));
     } catch (e) {
-      console.log('BabyShield: Cannot access iframe content (cross-origin)');
+      console.log('MindSteady: Cannot access iframe content (cross-origin)');
     }
   }
 
@@ -80,7 +80,7 @@ class VideoInterceptor {
       return; // Already intercepted
     }
 
-    console.log('BabyShield: New video detected', videoElement);
+    console.log('MindSteady: New video detected', videoElement);
     
     const videoData = {
       id: Date.now() + Math.random(),
@@ -125,7 +125,7 @@ class VideoInterceptor {
   async analyzeVideo(videoElement, videoData) {
     if (videoData.isAnalyzed) return;
 
-    console.log('BabyShield: Analyzing video content');
+    console.log('MindSteady: Analyzing video content');
 
     console.log("Video Data:", videoData);
     
@@ -133,7 +133,7 @@ class VideoInterceptor {
       // Get video metadata
       const videoMetadata = this.extractVideoMetadata(videoElement);
 
-      console.log('BabyShield: Video metadata:', videoMetadata);
+      console.log('MindSteady: Video metadata:', videoMetadata);
       
       // Send to background script for API call
       const response = await this.sendToBackground({
@@ -147,7 +147,7 @@ class VideoInterceptor {
       this.applySafetyMeasures(videoElement, videoData, response);
       
     } catch (error) {
-      console.error('BabyShield: Error analyzing video:', error);
+      console.error('MindSteady: Error analyzing video:', error);
     }
   }
 
@@ -168,7 +168,7 @@ class VideoInterceptor {
   applySafetyMeasures(videoElement, videoData, analysisResponse) {
     const { actions } = analysisResponse;
     
-    console.log(`BabyShield: Applying safety measures for content`);
+    console.log(`MindSteady: Applying safety measures for content`);
     console.log("Analysis Response:", analysisResponse);
 
     if (actions) {
@@ -190,12 +190,12 @@ class VideoInterceptor {
   }
 
   reducePlaybackSpeed(videoElement, speedFactor) {
-    console.log(`BabyShield: Reducing playback speed to ${speedFactor}x`);
+    console.log(`MindSteady: Reducing playback speed to ${speedFactor}x`);
     videoElement.playbackRate = speedFactor;
   }
 
   applyVisualFilters(videoElement, filters) {
-    console.log('BabyShield: Applying visual filters:', filters);
+    console.log('MindSteady: Applying visual filters:', filters);
     
     let filterString = '';
     
@@ -217,7 +217,7 @@ class VideoInterceptor {
   }
 
   showWarning(videoElement, videoData, message) {
-    console.log('BabyShield: Showing warning and pausing video');
+    console.log('MindSteady: Showing warning and pausing video');
     
     // Pause the video
     videoElement.pause();

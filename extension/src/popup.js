@@ -1,7 +1,7 @@
-// BabyShield Popup Script
+// MindSteady Popup Script
 // Handles the extension popup interface
 
-class BabyShieldPopup {
+class MindSteadyPopup {
   constructor() {
     this.currentTab = null;
     this.settings = {
@@ -12,7 +12,7 @@ class BabyShieldPopup {
   }
 
   async init() {
-    console.log('BabyShield: Popup initialized');
+    console.log('MindSteady: Popup initialized');
     
     // Get current tab
     const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -41,7 +41,7 @@ class BabyShieldPopup {
 
   async loadSettings() {
       this.settings = await this.sendToBackground({ action: 'getSettings' });
-      console.log('BabyShield: Settings loaded:', this.settings); 
+      console.log('MindSteady: Settings loaded:', this.settings); 
   }
 
   updateUI() {
@@ -75,10 +75,10 @@ class BabyShieldPopup {
       });
       
       this.updateStatusIndicator();
-      console.log(`BabyShield: Updated ${key} to:`, value);
+      console.log(`MindSteady: Updated ${key} to:`, value);
       
     } catch (error) {
-      console.error('BabyShield: Failed to update setting:', error);
+      console.error('MindSteady: Failed to update setting:', error);
     }
   }
 
@@ -114,5 +114,5 @@ class BabyShieldPopup {
 
 // Initialize popup when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  new BabyShieldPopup();
+  new MindSteadyPopup();
 });

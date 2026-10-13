@@ -1,4 +1,4 @@
-// BabyShield Background Script (Service Worker)
+// MindSteady Background Script (Service Worker)
 // Handles API communication and extension management
 
 class Settings {
@@ -20,7 +20,7 @@ class Settings {
     }
 }
 
-class BabyShieldBackground {
+class MindSteadyBackground {
   constructor() {
     this.settings = new Settings()
     
@@ -28,7 +28,7 @@ class BabyShieldBackground {
   }
 
   init() {
-    console.log('BabyShield: Background script initialized');
+    console.log('MindSteady: Background script initialized');
     
     // Listen for messages from content scripts
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -80,13 +80,13 @@ class BabyShieldBackground {
           sendResponse({ error: 'Unknown action' });
       }
     } catch (error) {
-      console.error('BabyShield: Background script error:', error);
+      console.error('MindSteady: Background script error:', error);
       sendResponse({ error: error.message });
     }
   }
 
   async analyzeVideo(videoMetadata) {
-    console.log('BabyShield: Analyzing video with metadata:', videoMetadata);
+    console.log('MindSteady: Analyzing video with metadata:', videoMetadata);
     
     try {
 
@@ -109,7 +109,7 @@ class BabyShieldBackground {
       return {actions: result};
       
     } catch (error) {
-      console.error('BabyShield: API call failed:', error);
+      console.error('MindSteady: API call failed:', error);
       
       // Return safe default response on error
       return {
@@ -127,4 +127,4 @@ class BabyShieldBackground {
 }
 
 // Initialize the background script
-new BabyShieldBackground();
+new MindSteadyBackground();
