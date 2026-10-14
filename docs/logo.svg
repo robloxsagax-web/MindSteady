@@ -1,28 +1,78 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="MindSteady logo">
   <title>MindSteady</title>
   <defs>
-    <linearGradient id="msGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#22C1C3"/>
-      <stop offset="1" stop-color="#2A6EF5"/>
+    <!-- App-tile background -->
+    <linearGradient id="msBg" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#1E1B4B"/>
+      <stop offset="0.45" stop-color="#4338CA"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
     </linearGradient>
+
+    <!-- Top-left sheen -->
+    <radialGradient id="msSheen" cx="0.22" cy="0.12" r="0.85">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Shield face -->
+    <linearGradient id="msShield" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#F0F9FF"/>
+      <stop offset="1" stop-color="#DBEAFE"/>
+    </linearGradient>
+
+    <!-- Steady pulse -->
     <linearGradient id="msPulse" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="0.5" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#22D3EE"/>
     </linearGradient>
+
+    <linearGradient id="msRim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#BAE6FD" stop-opacity="0.65"/>
+    </linearGradient>
+
+    <filter id="msDrop" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#0B1020" flood-opacity="0.45"/>
+    </filter>
+
+    <filter id="msGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
 
-  <!-- Shield: steady protection -->
-  <path d="M256 44 L428 108 C428 300 356 420 256 468 C156 420 84 300 84 108 Z"
-        fill="url(#msGrad)"/>
-  <path d="M256 44 L428 108 C428 300 356 420 256 468 C156 420 84 300 84 108 Z"
-        fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="8"/>
+  <!-- Squircle app tile -->
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#msBg)"/>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#msSheen)"/>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="none"
+        stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="3"/>
 
-  <!-- Steady heartbeat: mind at ease -->
-  <path d="M150 262 H208 L232 210 L268 316 L296 236 L318 262 H362"
-        fill="none" stroke="url(#msPulse)" stroke-width="18"
-        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Shield -->
+  <g filter="url(#msDrop)">
+    <path d="M256 74 L410 132 C410 300 346 412 256 456 C166 412 102 300 102 132 Z"
+          fill="url(#msShield)"/>
+  </g>
+  <path d="M256 74 L410 132 C410 300 346 412 256 456 C166 412 102 300 102 132 Z"
+        fill="none" stroke="url(#msRim)" stroke-width="6"/>
 
-  <!-- Calm mind dots -->
-  <circle cx="256" cy="150" r="14" fill="#FFFFFF" fill-opacity="0.9"/>
+  <!-- Inner calm field -->
+  <path d="M256 108 L384 156 C384 292 332 384 256 420 C180 384 128 292 128 156 Z"
+        fill="#EEF6FF" fill-opacity="0.75"/>
+
+  <!-- Steady pulse (mind at ease) -->
+  <g filter="url(#msGlow)">
+    <path d="M150 268 H196 L222 208 L258 330 L290 240 L314 268 H362"
+          fill="none" stroke="url(#msPulse)" stroke-width="20"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Mind dot -->
+  <circle cx="256" cy="170" r="15" fill="#6366F1"/>
+  <circle cx="251" cy="165" r="5" fill="#FFFFFF" fill-opacity="0.85"/>
 </svg>
