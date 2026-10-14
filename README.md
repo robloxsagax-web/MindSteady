@@ -17,7 +17,6 @@ MindSteady is the first real-time, AI-powered runtime shield that intercepts vid
 [![Google ADK](https://img.shields.io/badge/AI-Google%20ADK%20Agents-4285F4?style=for-the-badge&logo=google&logoColor=white)](./shieldagent)
 [![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](./extension/manifest.json)
 
-[![Child Safety in AI](https://img.shields.io/badge/Hackathon-Child%20Safety%20in%20AI-8A2BE2?style=for-the-badge&logo=devpost&logoColor=white)](#-hackathon-submission)
 [![Privacy First](https://img.shields.io/badge/Privacy-Client--Side%20%7C%20No%20Tracking-2ea44f?style=for-the-badge&logo=shield&logoColor=white)](#-privacy-by-design)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](./LICENSE)
 [![Status](https://img.shields.io/badge/Status-Hackathon%20MVP-orange?style=for-the-badge)](#-project-status)
@@ -554,15 +553,6 @@ MindSteady/
 <td>Clear problem framing, architecture diagrams, and a live demo of real interventions.</td>
 </tr>
 </table>
-
-### 📦 Submission Checklist
-
-| Item | Status |
-|------|:------:|
-| 📝 Project overview | ✅ This README |
-| 💻 Public code repository | ✅ GitHub |
-| 🎥 Demo video (1–3 min) | ⏳ To record |
-| 🧪 Tested MVP | ✅ Working prototype |
 
 ---
 
